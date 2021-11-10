@@ -3,13 +3,16 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import AttackOnTitan from '../svg/attackontitan.svg';
 import '../style/homepage.css';
+import Background from '../svg/background.png';
+
 
 
 
 const cardIformation = [
   { id: 1, name: "The big bang theory", image: "https://upload.wikimedia.org/wikipedia/commons/1/13/TBBT_logo.svg", genre: "Comedy sitcom" },
   { id: 2, name: "Attack on Titan", image: `${AttackOnTitan}`, genre: "Anime" },
-  { id: 3, name: "Dexter", image: "", genre: "Thriller" }];
+  { id: 3, name: "Dexter", image: "https://upload.wikimedia.org/wikipedia/commons/b/bd/Dexter_Logo.svg", genre: "Thriller" }];
+  
 
 const Homepage = () => {
   const [cardInfos] = useState(cardIformation);
@@ -17,9 +20,9 @@ const Homepage = () => {
 
 
   return (
-    <div className="container">
-      <Card style={{ width: '18rem' }}>
-        {cardInfos.map(cardInfo =>
+    <div className="background">
+      {cardInfos.map(cardInfo =>
+        <Card>
           <Card.Body>
             <Card.Img variant="top" src={cardInfo.image} />
             <Card.Title>{cardInfo.name}</Card.Title>
@@ -27,9 +30,10 @@ const Homepage = () => {
               {cardInfo.genre}
             </Card.Text>
             <Button variant="primary">Go somewhere</Button>
-          </Card.Body>)}
+          </Card.Body>
+        </Card>
+      )}
 
-      </Card>
     </div>
   )
 }
