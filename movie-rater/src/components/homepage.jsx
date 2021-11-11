@@ -7,7 +7,6 @@ import Background from '../svg/background.png';
 
 
 
-
 const cardIformation = [
   { id: 1, name: "The big bang theory", image: "https://upload.wikimedia.org/wikipedia/commons/1/13/TBBT_logo.svg", genre: "Comedy sitcom" },
   { id: 2, name: "Attack on Titan", image: `${AttackOnTitan}`, genre: "Anime" },
@@ -20,6 +19,10 @@ const Homepage = () => {
 
 
   return (
+    <>
+    <div style={{backgroundColor:"blue",color:"White"}}>
+    <marquee behavior="scroll" direction="left"><h2>Wlecome to your movie rater</h2></marquee>
+    </div>
     <div className="background">
       {cardInfos.map(cardInfo =>
         <Card>
@@ -35,6 +38,7 @@ const Homepage = () => {
       )}
 
     </div>
+    </>
   )
 }
 
