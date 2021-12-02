@@ -5,6 +5,12 @@
     width: 500px;
     max-width: 100%;
   }
+  .about_us{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
   
 .background {
     /* background-image: url("../svg/background.png"); */

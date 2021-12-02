@@ -24,7 +24,7 @@ const Homepage = () => {
     <marquee behavior="scroll" direction="left"><h2>Wlecome to your movie rater</h2></marquee>
     </div>
     <h1 className="text-center">What's new Hollywood!</h1>
-    {/* <div className="background">
+    <div className="background">
       {cardInfos.map(cardInfo =>
         <Card>
           <Card.Body>
@@ -38,7 +38,7 @@ const Homepage = () => {
         </Card>
       )}
 
-    </div> */}
+    </div>
     </>
   )
 }

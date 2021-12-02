@@ -86,7 +86,7 @@ class ContactUs extends React.Component {
       if(!formValid) {
         
       return (
-  <>
+  <div style={{backgroundColor:"#c4d4cb"}}>
   <div className="card shadow-sm border-0 px-3 rounded-2 mb-3 py-4 mx-auto mt-5 bg-light">
     <div className="card-header bg-transparent border-0 text-center text-uppercase"><h3>Contact Us</h3></div>
     <div className="card-body">
@@ -128,7 +128,7 @@ class ContactUs extends React.Component {
       
     </div>
   </div>
-      </>
+      </div>
       );
         } else {
          return (
