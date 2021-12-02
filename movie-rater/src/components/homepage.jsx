@@ -20,10 +20,11 @@ const Homepage = () => {
 
   return (
     <>
-    <div style={{backgroundColor:"blue",color:"White"}}>
+    <div style={{backgroundColor:"#c4d4cb",color:"Black"}}>
     <marquee behavior="scroll" direction="left"><h2>Wlecome to your movie rater</h2></marquee>
     </div>
-    <div className="background">
+    <h1 className="text-center">What's new Hollywood!</h1>
+    {/* <div className="background">
       {cardInfos.map(cardInfo =>
         <Card>
           <Card.Body>
@@ -37,7 +38,7 @@ const Homepage = () => {
         </Card>
       )}
 
-    </div>
+    </div> */}
     </>
   )
 }

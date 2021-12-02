@@ -1,19 +1,16 @@
 import React from "react";
-import Tanatak1 from '../svg/t1.jpg';
 import Tanatak2 from '../svg/t2.jpeg';
 import Andrew from '../svg/a1.jpeg';
 
 const AboutUs = () => {
     return (
         <>
-        <h3> About Us</h3>
-        <div lass="container">
+        <h1> About Us</h1>
+        <div class="text-center">
             <p>This project is done by  </p>
-            <p> - Taranak Shanan 300319129</p>
-            <p> - Andre Shanan 300319129 </p>
-            <img src = {Tanatak1} style={{height: 700}}  alt="" />..
-            <img src = {Tanatak2} style={{height: 700}}  alt="" />..
-            <img src = {Andrew} style={{height: 700}}  alt="" />..
+            <p>  Tarane Talebi 300319129<img  className="img-thumbnail rounded " src = {Tanatak2} style={{height: 300}}  alt="" /></p>
+            <p>  Andre Shanan 300319129 <img  className="img-thumbnail rounded " src = {Andrew} style={{height: 300}}  alt="" /></p>
+            
 
         </div>
         </>

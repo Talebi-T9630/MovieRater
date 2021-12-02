@@ -1,5 +1,14 @@
+#navbar{
+    background-color:black;
+}
+.card {
+    width: 500px;
+    max-width: 100%;
+  }
+  
 .background {
-    background-image: url("../svg/background.png");
+    /* background-image: url("../svg/background.png"); */
+    background-color: #c7b491;
     display: flex;
     align-items: stretch;
     justify-content: space-evenly;
