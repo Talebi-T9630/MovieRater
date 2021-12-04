@@ -8,7 +8,7 @@ const Movies = () => {
     
     useEffect(async () => {
       const result = await axios(
-        'https://imdb-api.com/en/API/Top250Movies/k_tqc3a27f',
+        'http://localhost:5000/moviesList',
       );
 
       setData(result.data);
@@ -18,11 +18,12 @@ const Movies = () => {
     return ( 
         <ul>
         {data.hits.map(item => (
-          <li key={item.id}>
+          <li key={item._id}>
             <a href={item.image}>{item.title}</a>
           </li>
         ))}
       </ul>
+      
      );
 }
  

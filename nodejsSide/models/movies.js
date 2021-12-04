@@ -1,31 +1,25 @@
 const mongoose = require('mongoose');
 
-// defining the schema
-/**
- * we do not need to insert the movie's info becouse all the info will be
- * fetch form the https://imdb-api.com/API
- *  key = k_tqc3a27f
- *  url = `https://imdb-api.com/en/API/Top250Movies/k_tqc3a27f`;
- */
 const moiveSchema = new mongoose.Schema({
-    moiveRef: {
+    moiveRef:{
         type: String,
-        required: [true, "please insert the movie refrence number."]
+        required: [true, "please enter moive's."]
     },
-    userFistName: {
+    title: {
         type: String,
-        required: [true, "please enter your fist name."]
+        required: [true, "please enter moive's."]
     },
-    userLastName: {
-        type: String,
-        min: 18,
-        max: 40,
-        required: [true, "please enter your last name."]
+    year: {
+        type: Number,
+        required: [true, "please enter your year."]
     },
-    userCommand: {
+    image: {
         type: String,
-        required: [true, "please enter your command."]
-    }
+        required: [true]
+    },
+    crew:{
+        type: String,
+        required: [true, "please enter the crew."]}
 
 });
 

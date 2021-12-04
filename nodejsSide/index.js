@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const https = require("https");
 const cors = require('cors');
 const Moive = require('./models/movies');
+const Review = require('./models/Reviews');
+const { json } = require('body-parser');
 
 const app = express();
 
@@ -14,11 +16,9 @@ app.use(cors());
 // set database url
 const url = "mongodb://localhost:27017/moviesDB";
 
+
+//----------Get Section--------------------
 // fetch movies form the route
-/***
- * i will change tnhe route when i learn how to connect nodejs with react !!!!
- * 
- */
 app.get("/",(req,res)=>{
     // 1- set the the url and its key
     const key = `k_tqc3a27f`;
@@ -33,8 +33,8 @@ app.get("/",(req,res)=>{
             //B process data and send it
             response.on("end",()=>{
                let parsedData = JSON.parse(dataCollector);
-               res.write(DesplayMovieData(parsedData));
-               res.send();
+               //res.write(DesplayMovieData(parsedData));
+               res.send(parsedData);
             })
     
         })
@@ -42,45 +42,9 @@ app.get("/",(req,res)=>{
     
     });
 
-app.post("/AddReview", async (req,res)=>{
-try{
-    
-    const {moiveRef,userFistName,userLastName,userCommand} = req.body;
-    console.log(moiveRef,userFistName,userLastName,userCommand);
-    const newCommandMovie = new Moive({
-        moiveRef: first_name,
-        userFistName: last_name,
-        userLastName: userLastName,
-        userFistName: userFistName,
-        userCommand:userCommand
-    });
 
-    await mongoose.connect(url);
-    console.log("Database connected");
-    Moive.save((err)=>{
-        if(err){
-            console.log(err);
-            res.send(err);
-        }
-        else{
-            console.log("The document inserted successfully");
-            res.send(newCommandMovie);
-            mongoose.connection.close();
-        }
-    });
-}
-catch(error){
-    console.log(error);
-}
-})
-    
-//get all movies that have command form database
-/***
- * here we will re-fetch the movies that we have it in database by using the moive's refrence
- * from the following : https://imdb-api.com/en/API/Title/{key}/{movie'ref}
- * by using the prevois link, we can add more info about the moives(just for browsing)
- */                                                      
-app.get("/MoviesInfo/", async (req,res)=>{
+//get all all movies we have in the data base                                                     
+app.get("/moviesList/", async (req,res)=>{
     try{
         await mongoose.connect(url);
         console.log("Database connected");
@@ -88,8 +52,26 @@ app.get("/MoviesInfo/", async (req,res)=>{
             if(err) console.log(err);
             else {
                 console.log(moives);
-                //** fetch is here  by moive's refrence*/
                 res.send(moives);
+                mongoose.connection.close();
+            }
+        })
+    }
+    catch(error){
+        console.log(error);
+    }
+})
+
+
+
+//get all movies commands and rates
+app.get("/allMoiveReviews/", async (req,res)=>{
+    try{
+        await mongoose.connect(url);
+        Review.find((err, commands)=>{
+            if(err) console.log(err);
+            else {
+                res.send(commands);
                 mongoose.connection.close();
             }
         })
@@ -100,14 +82,83 @@ app.get("/MoviesInfo/", async (req,res)=>{
 
 })
 
+//get spicific movies commands and rates
+app.get("/spicificMoiveReview/:ref", async (req,res)=>{
+    try{
+        var passedMoiveRef = req.params.ref;
+        await mongoose.connect(url);
+        Review.find({moiveRef:passedMoiveRef},(err,doc)=>{
+             if (!err){
+                 res.send(doc);
+             }
+         });
 
-// this function is used to print the movies' table
-/**
- * 
- *  i am thinking of  saving it in a component!!!
- * in that component we exe deletion...
- * 
- */
+    }
+    catch(error){
+        console.log(error);
+    }
+
+})
+
+///------ delete commands-------
+app.get("/deleteReview/:ReviewId", async (req,res)=>{
+    try{
+        
+           //--- get the info
+           let ReviewId = req.params.ReviewId;
+           _id = mongoose.Types.ObjectId(ReviewId);         
+           await mongoose.connect(url);
+           Review.deleteOne({_id: _id},(err)=>{
+                    if(!err){
+                        console.log("The document deleted successfully");
+                        //res.redirect("/spicificMoiveReview/tt0111161");
+                        
+                        mongoose.connection.close();                  
+                      }
+            });
+        }
+    catch(error){
+        console.log(error);
+    }
+});
+
+//-------------Post Section----------------------
+app.post("/submitReview/", async (req,res)=>{
+    try{
+        
+        const {moiveRef,userFirstName,userLastName,userCommand,userRate} = req.body;
+        //console.log(moiveRef,userFistName,userLastName,userCommand,userRate);
+        const newCommandMovie = new Review({
+            moiveRef: "moiveRef",
+            userFirstName: "userFirstName",
+            userLastName: "userLastName",
+            userCommand: "userCommand",
+            userRate:5,
+        });
+    
+        await mongoose.connect(url);
+        console.log("Database connected");
+        Moive.save((err)=>{
+            if(err){
+                console.log(err);
+                res.send(err);
+            }
+            else{
+                console.log("The document inserted successfully");
+                res.send(newCommandMovie);
+                mongoose.connection.close();
+            }
+        });
+    }
+    catch(error){
+        console.log(error);
+    }
+    })
+
+
+
+// this function is used to print the movies' table if you want
+
 function DesplayMovieData(data){
     console.log(data);
     var desplayTable = `<table>`;
@@ -129,6 +180,6 @@ function DesplayMovieData(data){
     return desplayTable
 }
 // set a server
-app.listen(4000, ()=>{
-    console.log("the server is up and listening on port 4000");
+app.listen(5000, ()=>{
+    console.log("the server is up and listening on port 5000");
 })

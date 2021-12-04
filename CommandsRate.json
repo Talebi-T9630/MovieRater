@@ -1,0 +1,224 @@
+[
+
+    {
+        "moiveRef":"tt0111161",
+        "title": "The Shawshank Redemption",
+        "year": "1995",
+        "image":"sdfsdf",
+        "crew": "Frank Darabont (dir.), Tim Robbins, Morgan Freeman"
+    },
+
+    {
+        "moiveRef":"tt0068646",
+        "title": "The Godfather",
+        "year": "1995",
+        "image": "https://imdb-api.com/images/original/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_Ratio0.7015_AL_.jpg",
+        "crew": "Francis Ford Coppola (dir.), Marlon Brando, Al Pacino"
+    },
+
+    {
+
+        "moiveRef":"tt0071562",
+        "title": "The Godfather: Part II",
+        "year": "1974",
+        "image": "https://imdb-api.com/images/original/MV5BMWMwMGQzZTItY2JlNC00OWZiLWIyMDctNDk2ZDQ2YjRjMWQ0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_Ratio0.7015_AL_.jpg",
+        "crew": "Francis Ford Coppola (dir.), Al Pacino, Robert De Niro"
+    },
+
+    {
+        "moiveRef":"tt0468569",
+        "title": "The Dark Knight",
+        "year": "2008",
+        "image": "https://imdb-api.com/images/original/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_Ratio0.6716_AL_.jpg",
+        "crew": "Christopher Nolan (dir.), Christian Bale, Heath Ledger"
+
+    },
+
+    {
+    "moiveRef":"tt0068646",
+    "title": "12 Angry Men",
+    "year": "1957",
+    "image": "https://imdb-api.com/images/original/MV5BMWU4N2FjNzYtNTVkNC00NzQ0LTg0MjAtYTJlMjFhNGUxZDFmXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_Ratio0.6716_AL_.jpg",
+    "crew": "Sidney Lumet (dir.), Henry Fonda, Lee J. Cobb"
+    },
+
+    {
+    "moiveRef":"tt0050083",
+    "title": "Schindler's List",
+    "year": "1993",
+    "image": "https://imdb-api.com/images/original/MV5BNDE4OTMxMTctNmRhYy00NWE2LTg3YzItYTk3M2UwOTU5Njg4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_Ratio0.6716_AL_.jpg",
+    "crew": "Steven Spielberg (dir.), Liam Neeson, Ralph Fiennes"
+
+    },
+
+    {
+    "moiveRef":"tt0108052",
+    "title": "The Lord of the Rings: The Return of the King",
+    "year": "2003",
+    "image": "https://imdb-api.com/images/original/MV5BNzA5ZDNlZWMtM2NhNS00NDJjLTk4NDItYTRmY2EwMWZlMTY3XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_Ratio0.6716_AL_.jpg",
+    "crew": "Peter Jackson (dir.), Elijah Wood, Viggo Mortensen"
+
+    },
+    {
+
+    "moiveRef":"tt0167260",
+    "title": "Pulp Fiction",
+    "year": "1994",
+    "image": "https://imdb-api.com/images/original/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_Ratio0.6716_AL_.jpg",
+    "crew": "Quentin Tarantino (dir.), John Travolta, Uma Thurman"
+
+    },
+
+    {
+
+    "moiveRef":"tt0110912",
+    "title": "The Good, the Bad and the Ugly",
+    "year": "1966",
+    "image": "https://imdb-api.com/images/original/MV5BOTQ5NDI3MTI4MF5BMl5BanBnXkFtZTgwNDQ4ODE5MDE@._V1_Ratio0.6716_AL_.jpg",
+    "crew": "Sergio Leone (dir.), Clint Eastwood, Eli Wallach"
+
+    },
+
+    {
+    "moiveRef":"tt0060196",
+    "title": "The Lord of the Rings: The Fellowship of the Ring",
+    "year": "2001",
+    "image": "https://imdb-api.com/images/original/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_Ratio0.6716_AL_.jpg",
+    "crew": "Peter Jackson (dir.), Elijah Wood, Ian McKellen"
+
+    },
+
+    {
+    "moiveRef":"tt0120737",
+    "title": "Fight Club",
+    "year": "1999",
+    "image": "https://imdb-api.com/images/original/MV5BMmEzNTkxYjQtZTc0MC00YTVjLTg5ZTEtZWMwOWVlYzY0NWIwXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_Ratio0.6716_AL_.jpg",
+    "crew": "David Fincher (dir.), Brad Pitt, Edward Norton"
+    },
+
+    {
+    "moiveRef":"tt0137523",
+    "title": "Forrest Gump",
+    "year": "1994",
+    "image": "https://imdb-api.com/images/original/MV5BNWIwODRlZTUtY2U3ZS00Yzg1LWJhNzYtMmZiYmEyNmU1NjMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_Ratio0.6716_AL_.jpg",
+    "crew": "Robert Zemeckis (dir.), Tom Hanks, Robin Wright"
+
+    },
+
+    {
+    "moiveRef":"tt0109830",
+    "title": "Inception",
+    "year": "2010",
+    "image": "https://imdb-api.com/images/original/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_Ratio0.6716_AL_.jpg",
+    "crew": "Christopher Nolan (dir.), Leonardo DiCaprio, Joseph Gordon-Levitt"
+
+    },
+
+    {
+    "moiveRef":"tt1375666",
+    "title": "The Lord of the Rings: The Two Towers",
+    "year": "2002",
+    "image": "https://imdb-api.com/images/original/MV5BZGMxZTdjZmYtMmE2Ni00ZTdkLWI5NTgtNjlmMjBiNzU2MmI5XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_Ratio0.6716_AL_.jpg",
+    "crew": "Peter Jackson (dir.), Elijah Wood, Ian McKellen"
+
+    },
+
+    {
+    "moiveRef":"tt0167261",
+    "title": "Star Wars: Episode V - The Empire Strikes Back",
+    "year": "1980",
+    "image": "https://imdb-api.com/images/original/MV5BYmU1NDRjNDgtMzhiMi00NjZmLTg5NGItZDNiZjU5NTU4OTE0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_Ratio0.6716_AL_.jpg",
+    "crew": "Irvin Kershner (dir.), Mark Hamill, Harrison Ford"
+
+    },
+
+    {
+     "moiveRef":"tt0080684",
+    "title": "The Matrix",
+    "year": "1999",
+    "image": "https://imdb-api.com/images/original/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_Ratio0.6716_AL_.jpg",
+    "crew": "Lana Wachowski (dir.), Keanu Reeves, Laurence Fishburne"
+
+    },
+
+    {
+    "moiveRef":"tt0133093",
+    "title": "Goodfellas",
+    "year": "1990",
+    "image": "https://imdb-api.com/images/original/MV5BY2NkZjEzMDgtN2RjYy00YzM1LWI4ZmQtMjIwYjFjNmI3ZGEwXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_Ratio0.6716_AL_.jpg",
+    "crew": "Martin Scorsese (dir.), Robert De Niro, Ray Liotta"
+
+    },
+
+    {
+    "moiveRef":"tt0099685",
+    "title": "One Flew Over the Cuckoo's Nest",
+    "year": "1975",
+    "image": "https://imdb-api.com/images/original/MV5BZjA0OWVhOTAtYWQxNi00YzNhLWI4ZjYtNjFjZTEyYjJlNDVlL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_Ratio0.6716_AL_.jpg",
+    "crew": "Milos Forman (dir.), Jack Nicholson, Louise Fletcher"
+
+    },
+
+    {
+    "moiveRef":"tt0073486",
+    "title": "Seven Samurai",
+    "year": "1954",
+    "image": "https://imdb-api.com/images/original/MV5BOWE4ZDdhNmMtNzE5ZC00NzExLTlhNGMtY2ZhYjYzODEzODA1XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_Ratio0.7015_AL_.jpg",
+    "crew": "Akira Kurosawa (dir.), Toshirô Mifune, Takashi Shimura"
+    },
+
+    {
+    "moiveRef":"tt0047478",
+    "title": "Se7en",
+    "year": "1995",
+    "image": "https://imdb-api.com/images/original/MV5BOTUwODM5MTctZjczMi00OTk4LTg3NWUtNmVhMTAzNTNjYjcyXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_Ratio0.6716_AL_.jpg",
+    "crew": "David Fincher (dir.), Morgan Freeman, Brad Pitt"
+
+    },
+
+    {
+    "moiveRef":"tt0114369",
+    "title": "The Silence of the Lambs",
+    "year": "1991",
+    "image": "https://imdb-api.com/images/original/MV5BNjNhZTk0ZmEtNjJhMi00YzFlLWE1MmEtYzM1M2ZmMGMwMTU4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_Ratio0.6716_AL_.jpg",
+    "crew": "Jonathan Demme (dir.), Jodie Foster, Anthony Hopkins"
+
+    },
+    
+    {
+    "moiveRef":"tt0102926",
+    "title": "City of God",
+    "year": "2002",
+    "image": "https://imdb-api.com/images/original/MV5BOTMwYjc5ZmItYTFjZC00ZGQ3LTlkNTMtMjZiNTZlMWQzNzI5XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_Ratio0.6716_AL_.jpg",
+    "crew": "Fernando Meirelles (dir.), Alexandre Rodrigues, Leandro Firmino"
+
+    },
+
+    {
+    "moiveRef":"tt0317248",
+    "title": "Life Is Beautiful",
+    "year": "1997",
+    "image": "https://imdb-api.com/images/original/MV5BYmJmM2Q4NmMtYThmNC00ZjRlLWEyZmItZTIwOTBlZDQ3NTQ1XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_Ratio0.6716_AL_.jpg",
+    "crew": "Roberto Benigni (dir.), Roberto Benigni, Nicoletta Braschi"
+
+    },
+
+    {
+    "moiveRef":"tt0118799",
+    "title": "It's a Wonderful Life",
+    "year": "1946",
+    "image": "https://imdb-api.com/images/original/MV5BZjc4NDZhZWMtNGEzYS00ZWU2LThlM2ItNTA0YzQ0OTExMTE2XkEyXkFqcGdeQXVyNjUwMzI2NzU@._V1_Ratio0.6716_AL_.jpg",
+    "crew": "Frank Capra (dir.), James Stewart, Donna Reed"
+
+    },
+    
+    {
+    "moiveRef":"tt0038650",
+    "title": "Star Wars: Episode IV - A New Hope",
+    "year": "1977",
+    "image": "https://imdb-api.com/images/original/MV5BNzVlY2MwMjktM2E4OS00Y2Y3LWE3ZjctYzhkZGM3YzA1ZWM2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_Ratio0.6716_AL_.jpg",
+    "crew": "George Lucas (dir.), Mark Hamill, Harrison Ford"
+    }
+]
+
+
