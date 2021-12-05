@@ -63,8 +63,7 @@ app.get("/moviesList/", async (req,res)=>{
 })
 
 
-
-//get all movies commands and rates
+//get all movies Reviews
 app.get("/allMoiveReviews/", async (req,res)=>{
     try{
         await mongoose.connect(url);
@@ -82,10 +81,10 @@ app.get("/allMoiveReviews/", async (req,res)=>{
 
 })
 
-//get spicific movies commands and rates
-app.get("/spicificMoiveReview/:ref", async (req,res)=>{
+//get spicific movies Review
+app.get("/spicificMoiveReview/:movieRefrece", async (req,res)=>{
     try{
-        var passedMoiveRef = req.params.ref;
+        var passedMoiveRef = req.params.movieRefrece;
         await mongoose.connect(url);
         Review.find({moiveRef:passedMoiveRef},(err,doc)=>{
              if (!err){
@@ -100,19 +99,24 @@ app.get("/spicificMoiveReview/:ref", async (req,res)=>{
 
 })
 
-///------ delete commands-------
-app.get("/deleteReview/:ReviewId", async (req,res)=>{
-    try{
-        
+///------ delete review-------
+/***
+ * when a review is deleted, the user will be redirected to the same page spicificMoiveReview/:ref to keep the user in the same page
+ * so i have added movieRefrece as param
+ * in app.get, i have used URL segments method
+ * for more information, Taranah, visit https://expressjs.com/en/guide/routing.html#:~:text=Route%20parameters%20are%20named%20URL%20segments%20that%20are%20used%20to%20capture%20the%20values%20specified%20at%20their%20position%20in%20the%20URL.%20The%20captured%20values%20are%20populated%20in%20the%20req.params%20object%2C%20with%20the%20name%20of%20the%20route%20parameter%20specified%20in%20the%20path%20as%20their%20respective%20keys. 
+*/
+app.get("/deleteReview/:ReviewId/Movie/:movieRefrece", async (req,res)=>{
+    try{  
            //--- get the info
-           let ReviewId = req.params.ReviewId;
-           _id = mongoose.Types.ObjectId(ReviewId);         
+           let movieRefrence = req.params.movieRefrece; // get the movie refrece
+           let ReviewId = req.params.ReviewId; // get the review Id
+           _id = mongoose.Types.ObjectId(ReviewId);  // pointer the object       
+
            await mongoose.connect(url);
            Review.deleteOne({_id: _id},(err)=>{
                     if(!err){
-                        console.log("The document deleted successfully");
-                        //res.redirect("/spicificMoiveReview/tt0111161");
-                        
+                        res.redirect(`/spicificMoiveReview/${movieRefrence}`);
                         mongoose.connection.close();                  
                       }
             });
@@ -153,7 +157,7 @@ app.post("/submitReview/", async (req,res)=>{
     catch(error){
         console.log(error);
     }
-    })
+})
 
 
 
