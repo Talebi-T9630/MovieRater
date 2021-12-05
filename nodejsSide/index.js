@@ -18,7 +18,11 @@ const url = "mongodb://localhost:27017/moviesDB";
 
 
 //----------Get Section--------------------
-// fetch movies form the route
+/***
+ * fetch movies form the route
+ * this API will be only used in the Home page as welcome, so it is not used to save data from
+ * will pass the json array we get to a component that display each moive in dynamic and styled way
+ * */ 
 app.get("/",(req,res)=>{
     // 1- set the the url and its key
     const key = `k_tqc3a27f`;
@@ -43,7 +47,10 @@ app.get("/",(req,res)=>{
     });
 
 
-//get all all movies we have in the data base                                                     
+/**
+ * get  all movies we have in the database
+ * in the database, will find 25 moives  that are ready to have review on
+ * */                                                 
 app.get("/moviesList/", async (req,res)=>{
     try{
         await mongoose.connect(url);
@@ -63,7 +70,9 @@ app.get("/moviesList/", async (req,res)=>{
 })
 
 
-//get all movies Reviews
+/**
+ * get all movies Reviews 
+ * */
 app.get("/allMoiveReviews/", async (req,res)=>{
     try{
         await mongoose.connect(url);
@@ -81,7 +90,10 @@ app.get("/allMoiveReviews/", async (req,res)=>{
 
 })
 
-//get spicific movies Review
+/**get all spicific movies Review
+ * this is one of the most importent array on our project, all command that related to the movie's Refrece (NOT ID)
+ * will be displayed
+*/
 app.get("/spicificMoiveReview/:movieRefrece", async (req,res)=>{
     try{
         var passedMoiveRef = req.params.movieRefrece;
@@ -103,7 +115,7 @@ app.get("/spicificMoiveReview/:movieRefrece", async (req,res)=>{
 /***
  * when a review is deleted, the user will be redirected to the same page spicificMoiveReview/:ref to keep the user in the same page
  * so i have added movieRefrece as param
- * in app.get, i have used URL segments method
+ * in app.get, i have used URL segments method *
  * for more information, Taranah, visit https://expressjs.com/en/guide/routing.html#:~:text=Route%20parameters%20are%20named%20URL%20segments%20that%20are%20used%20to%20capture%20the%20values%20specified%20at%20their%20position%20in%20the%20URL.%20The%20captured%20values%20are%20populated%20in%20the%20req.params%20object%2C%20with%20the%20name%20of%20the%20route%20parameter%20specified%20in%20the%20path%20as%20their%20respective%20keys. 
 */
 app.get("/deleteReview/:ReviewId/Movie/:movieRefrece", async (req,res)=>{
@@ -127,9 +139,10 @@ app.get("/deleteReview/:ReviewId/Movie/:movieRefrece", async (req,res)=>{
 });
 
 //-------------Post Section----------------------
+// add a new review
 app.post("/submitReview/", async (req,res)=>{
     try{
-        
+        //
         const {moiveRef,userFirstName,userLastName,userCommand,userRate} = req.body;
         //console.log(moiveRef,userFistName,userLastName,userCommand,userRate);
         const newCommandMovie = new Review({
