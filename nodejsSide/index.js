@@ -17,7 +17,7 @@ app.use(cors());
 const url = "mongodb://localhost:27017/moviesDB";
 
 
-//----------Get Section--------------------
+//Frist//----------Get Section--------------------
 /***
  * fetch movies form the route
  * this API will be only used in the Home page as welcome, so it is not used to save data from
@@ -51,7 +51,7 @@ app.get("/",(req,res)=>{
  * get  all movies we have in the database
  * in the database, will find 25 moives  that are ready to have review on
  * */                                                 
-app.get("/moviesList/", async (req,res)=>{
+app.get("/moviesList", async (req,res)=>{
     try{
         await mongoose.connect(url);
         console.log("Database connected");
@@ -73,7 +73,7 @@ app.get("/moviesList/", async (req,res)=>{
 /**
  * get all movies Reviews 
  * */
-app.get("/allMoiveReviews/", async (req,res)=>{
+app.get("/allMoiveReviews/show", async (req,res)=>{
     try{
         await mongoose.connect(url);
         Review.find((err, commands)=>{
@@ -93,8 +93,10 @@ app.get("/allMoiveReviews/", async (req,res)=>{
 /**get all spicific movies Review
  * this is one of the most importent array on our project, all command that related to the movie's Refrece (NOT ID)
  * will be displayed
+ * important :::: movieRefrece is grabbed form API (imdb-api.com), so that what will be used when we add or browse a voive reviews
+ * all movies in the database are populated with movieRefrece and its value already 
 */
-app.get("/spicificMoiveReview/:movieRefrece", async (req,res)=>{
+app.get("/spicificMoiveReview/show/:movieRefrece", async (req,res)=>{
     try{
         var passedMoiveRef = req.params.movieRefrece;
         await mongoose.connect(url);
@@ -113,22 +115,23 @@ app.get("/spicificMoiveReview/:movieRefrece", async (req,res)=>{
 
 ///------ delete review-------
 /***
- * when a review is deleted, the user will be redirected to the same page spicificMoiveReview/:ref to keep the user in the same page
+ * when a review is deleted, the user will be redirected to the same page spicificMoiveReview/show/:movieRefrece to keep the user in the same page with updated data
  * so i have added movieRefrece as param
  * in app.get, i have used URL segments method *
  * for more information, Taranah, visit https://expressjs.com/en/guide/routing.html#:~:text=Route%20parameters%20are%20named%20URL%20segments%20that%20are%20used%20to%20capture%20the%20values%20specified%20at%20their%20position%20in%20the%20URL.%20The%20captured%20values%20are%20populated%20in%20the%20req.params%20object%2C%20with%20the%20name%20of%20the%20route%20parameter%20specified%20in%20the%20path%20as%20their%20respective%20keys. 
 */
-app.get("/deleteReview/:ReviewId/Movie/:movieRefrece", async (req,res)=>{
+app.get("/spicificMoiveReview/delete/:ReviewId/movie/:movieRefrece", async (req,res)=>{
     try{  
            //--- get the info
            let movieRefrence = req.params.movieRefrece; // get the movie refrece
            let ReviewId = req.params.ReviewId; // get the review Id
-           _id = mongoose.Types.ObjectId(ReviewId);  // pointer the object       
+           _id = mongoose.Types.ObjectId(ReviewId);  // pointer the object    
 
+           // get connection to DateBase
            await mongoose.connect(url);
            Review.deleteOne({_id: _id},(err)=>{
                     if(!err){
-                        res.redirect(`/spicificMoiveReview/${movieRefrence}`);
+                        res.redirect(`/spicificMoiveReview/show/${movieRefrence}`);
                         mongoose.connection.close();                  
                       }
             });
@@ -138,31 +141,38 @@ app.get("/deleteReview/:ReviewId/Movie/:movieRefrece", async (req,res)=>{
     }
 });
 
-//-------------Post Section----------------------
-// add a new review
-app.post("/submitReview/", async (req,res)=>{
+//Second//-------------Post Section----------------------
+/***
+ * this function is used to add a new review
+ * the user will be redirected to the same page spicificMoiveReview/show/:movieRefrece to keep the user in the same page with updated data
+*/
+app.post("/spicificMoiveReview/submitNew/movie/:movieRefrece", async (req,res)=>{
+
     try{
-        //
-        const {moiveRef,userFirstName,userLastName,userCommand,userRate} = req.body;
-        //console.log(moiveRef,userFistName,userLastName,userCommand,userRate);
-        const newCommandMovie = new Review({
-            moiveRef: "moiveRef",
-            userFirstName: "userFirstName",
-            userLastName: "userLastName",
-            userCommand: "userCommand",
-            userRate:5,
+        //1- get vars
+        let movieRefrence = req.params.movieRefrece; // get the movie refrece
+        const {moiveRef,userFistName,userLastName,userCommand,userRate} = req.body;
+        //2- init an object
+        const newReview = new Review({
+            moiveRef: moiveRef,
+            userFistName: userFistName,
+            userLastName: userLastName,
+            userCommand: userCommand,
+            userRate:userRate,
         });
-    
+        
+        //-3 get connection to the dataBase
         await mongoose.connect(url);
-        console.log("Database connected");
-        Moive.save((err)=>{
+
+        //-4 submit the entity
+        newReview.save((err)=>{
             if(err){
                 console.log(err);
                 res.send(err);
             }
             else{
-                console.log("The document inserted successfully");
-                res.send(newCommandMovie);
+               // res.send(newReview);
+                res.redirect(`/spicificMoiveReview/show/${movieRefrence}`);
                 mongoose.connection.close();
             }
         });
@@ -173,9 +183,50 @@ app.post("/submitReview/", async (req,res)=>{
 })
 
 
+//Thired//-------------Put Section----------------------
+/***
+ * this function is used to  update a review
+ * the user will be redirected to the same page spicificMoiveReview/show/:movieRefrece to keep the user in the same page with updated data
+*/
+app.put("/spicificMoiveReview/update/:reviewId/movie/:movieRefrece", async (req,res)=>{
+    try{
+          //1- get the vars form the the url
+           let movieRefrence = req.params.movieRefrece; // get the movie refrece
+           let reviewId = req.params.reviewId;
+           //2- get the object
+           _id = mongoose.Types.ObjectId(reviewId);
+           //3- get the vars form the body
+           const {moiveRef,userFistName,userLastName,userCommand,userRate} = req.body;
+           //4- make connection to the databse
+           await mongoose.connect(url);
+           //5- process update
+           Review.updateOne(
+                {_id: _id}, 
+                {
+                moiveRef: moiveRef,
+                userFistName: userFistName, 
+                userLastName: userLastName,
+                userCommand:userCommand,
+                userRate:userRate
+                },
+                (err)=>{
+                    if(err){
+                        console.log(err);
+                        res.send(err);
+                    }
+                    else{
+                        res.send("asdsa");
+                        //res.redirect(`/spicificMoiveReview/show/${movieRefrence}`);
+                        mongoose.connection.close();
+                    }
+                });
+        }
+    catch(error){
+        console.log(error);
+    }
+});
 
 // this function is used to print the movies' table if you want
-
 function DesplayMovieData(data){
     console.log(data);
     var desplayTable = `<table>`;
