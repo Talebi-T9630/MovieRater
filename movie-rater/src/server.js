@@ -182,7 +182,7 @@ app.post("/spicificMoiveReview/submitNew/movie/:movieRefrece", async (req,res)=>
 })
 
 
-//Third//-------------Put Section----------------------
+//Thired//-------------Put Section----------------------
 /***
  * this function is used to  update a review
  * the user will be redirected to the same page spicificMoiveReview/show/:movieRefrece to keep the user in the same page with updated data

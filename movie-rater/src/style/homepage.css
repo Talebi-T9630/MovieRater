@@ -1,3 +1,4 @@
+
 #navbar{
     background-color:black;
 }
@@ -13,7 +14,6 @@
   }
   
 .background {
-    /* background-image: url("../svg/background.png"); */
     background-color: #c7b491;
     display: flex;
     align-items: stretch;
@@ -31,3 +31,18 @@
     background-color: "grey";
     box-shadow: black;
 }
+
+.video-responsive {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+  }
+  
+  .video-responsive iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+  }

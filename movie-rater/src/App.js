@@ -7,6 +7,7 @@ import Homepage from './components/homepage';
 import  AboutUs from './components/aboutUs';
 import ContactUS from './components/contactUs';
 import Movies from './components/movies';
+import MovieReview from './components/movieReview';
 
 
 function App() {
@@ -16,9 +17,11 @@ function App() {
   <Routes>
           <Route path="/about" exact element={<AboutUs/>}/>
           <Route path="/ConectUs" exact element={<ContactUS/>}/>
-          <Route path="/MoviesList" exact element={<Movies/>}/>
+          <Route path="/movies" exact element={<Movies/>}/>
           <Route path="/home" exact element={<Homepage/>}/>
           <Route path="/" exact element={<Homepage/>}/>
+          <Route path="/movieReview" exact element={<MovieReview/>}/>
+
 
     </Routes>
     </div>
