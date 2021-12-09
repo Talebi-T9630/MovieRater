@@ -8,6 +8,7 @@ import  AboutUs from './components/aboutUs';
 import ContactUS from './components/contactUs';
 import Movies from './components/movies';
 import MovieReview from './components/movieReview';
+import AddNewComment from './components/addnewcomment';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/home" exact element={<Homepage/>}/>
           <Route path="/" exact element={<Homepage/>}/>
           <Route path="/movieReview" exact element={<MovieReview/>}/>
+          <Route path="/addnewcomment" exact element={<AddNewComment/>}/>
 
 
     </Routes>

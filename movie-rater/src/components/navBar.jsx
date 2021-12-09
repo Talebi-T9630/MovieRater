@@ -11,6 +11,8 @@ const NavBar = () => {
                     <li className="nav-item"><NavLink className="nav-link text-white" to="/about">About Us</NavLink></li>
                     <li className="nav-item"><NavLink className="nav-link text-white" to="/ConectUs">Contact US</NavLink></li>
                 </ul>
+
+                <p className="float-right text-white" style={{fontSize:30, marginRight:20}}>MOVIE RATER</p>
         </nav>
 
     );

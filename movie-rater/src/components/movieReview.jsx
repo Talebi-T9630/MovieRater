@@ -1,15 +1,17 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import { useState, useEffect } from 'react';
+import {  Link } from 'react-router-dom';
 import axios from 'axios';
 
 
 function MovieReview(props) {
     const [reviews, setReviews] = useState([]);
+    const [newComment, setNewComments] = useState([]);
     const index = 0;
 
     useEffect(async () => {
-        axios.get("http://localhost:5000/allMoiveReviews/show")
+        axios.get(`http://localhost:5000/allMoiveReviews/show`)
             .then(resp => {
                 console.log(resp, resp.data)
                 setReviews(resp.data);
@@ -19,6 +21,22 @@ function MovieReview(props) {
             })
     }, []);
 
+    const handleAdd = async()=>{
+        console.log(newComment);
+        const {data} = await axios.post("/spicificMoiveReview/submitNew/movie/", newComment);
+        console.log(data);
+        if(typeof data === 'object'){
+          const movie = data;
+          console.log(movie);
+          const newComments = [...reviews, movie];
+          setReviews([...newComments]);
+        }
+        else{
+          console.log("Can not add object");
+        }
+      }
+   
+   
 
 
     return (
@@ -36,7 +54,7 @@ function MovieReview(props) {
             <br></br>
             <br></br>
 
-            <button className="btn btn-success float-right">+New Comment</button>
+            <Link to={{pathname: "/addnewcomment"}}>   <button className="btn btn-success float-right" onClick={handleAdd}>+New Comment</button></Link>
             <table className="table table-striped " style={{ width: 1500 }}>
                 <thead>
                     <th><h3>Comments</h3> </th>
