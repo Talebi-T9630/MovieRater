@@ -28,6 +28,7 @@ The list of movies was initially taken through an API call and then transported 
 
 new feature- added emailjs to be able to receive the email from the customers. Please send us an email if you liked this project.
 
+
 Thank you,
 FrontEnd: Tarane - 300309630
 BackEnd: Andrew  - 300319129

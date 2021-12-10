@@ -1,5 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import emailjs from 'emailjs-com';
+
 
 class ContactUs extends React.Component {
 
@@ -47,11 +49,18 @@ class ContactUs extends React.Component {
     //if all values are filled, set true and submit else there is a problem with the form
     if (name && email && message && !nameError && !emailError && !emailError2 && !messageError) {
       this.setState({ formValid: true });
+      emailjs.sendForm('service_ez7gn0d', 'template_720o9oq', e.target, 'user_g8xe7t0mVyHp3qPILMpIo')
+        .then((result) => {
+            console.log(result.text);
+        }, (error) => {
+            console.log(error);
+        });
     } else {
       this.setState({ formValid: false });
     }
 
     e.preventDefault();
+      
   }
 
   render() {

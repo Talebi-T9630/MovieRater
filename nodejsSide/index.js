@@ -150,7 +150,9 @@ app.post("/spicificMoiveReview/submitNew/movie/:movieRefrece", async (req,res)=>
     try{
         //1- get vars
         let movieRefrence = req.params.movieRefrece; // get the movie refrece
-        const {moiveRef,userFistName,userLastName,userCommand,userRate} = req.body;
+        const {userFistName,userLastName,userCommand,userRate} = req.body;
+        const moiveRef = movieRefrence;
+        console.log(movieRefrence,moiveRef,userFistName,userLastName,userCommand,userRate);
         //2- init an object
         const newReview = new Review({
             moiveRef: moiveRef,
@@ -170,8 +172,9 @@ app.post("/spicificMoiveReview/submitNew/movie/:movieRefrece", async (req,res)=>
                 res.send(err);
             }
             else{
-               // res.send(newReview);
-                res.redirect(`/spicificMoiveReview/show/${movieRefrence}`);
+                console.log("comment Saved");
+                res.send(newReview);
+                //res.redirect(`/spicificMoiveReview/show/${movieRefrence}`);
                 mongoose.connection.close();
             }
         });
@@ -192,8 +195,11 @@ app.put("/spicificMoiveReview/update/:reviewId/movie/:movieRefrece", async (req,
           //1- get the vars form the the url
            let movieRefrence = req.params.movieRefrece; // get the movie refrece
            let reviewId = req.params.reviewId;
+            console.log(reviewId);
            //2- get the object
            _id = mongoose.Types.ObjectId(reviewId);
+
+           console.log(_id);
            //3- get the vars form the body
            const {moiveRef,userFistName,userLastName,userCommand,userRate} = req.body;
            //4- make connection to the databse
